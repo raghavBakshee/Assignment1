@@ -30,16 +30,15 @@ public class FixedDepositPage extends TestBase{
 
 
 	public void enterAmount(int amount) throws AWTException, InterruptedException{
-		UIActionsWrapper.clearAmountField(amountField);
-		UIActionsWrapper.sendKeysWithWait(amountField_Enter, Integer.toString(amount));
+		UIActionsWrapper.sendKeysNew(Integer.toString(amount));
 	}
 
 	public String getAmountError(){
-		return UIActionsWrapper.getTextWithWait(amountFieldError);
+		return UIActionsWrapper.getTextAmountWithWait((amountFieldError));
 	}
 
 	public String getTotalInterestPayout(){
-		return UIActionsWrapper.getTextWithWait(totalInterestPayout);
+		return UIActionsWrapper.getTextInterestWithWait(totalInterestPayout);
 	}
 
 

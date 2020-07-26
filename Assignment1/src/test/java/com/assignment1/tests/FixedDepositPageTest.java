@@ -28,7 +28,7 @@ public class FixedDepositPageTest extends TestBase{
 	}
 
 
-	@Test(dataProvider = "AmountDataProvider", dataProviderClass = DataProviders.class)
+	//@Test(dataProvider = "AmountDataProvider", dataProviderClass = DataProviders.class)
 	public void VerifyAmountFieldValidation(int amountInput, String errorMessage){
 		try {
 			fixedDepositPage.enterAmount(amountInput);
@@ -42,7 +42,7 @@ public class FixedDepositPageTest extends TestBase{
 
 	}
 
-	//@Test(dataProvider = "CheckInterestAmountDataProvider", dataProviderClass = DataProviders.class)
+	@Test(dataProvider = "CheckInterestAmountDataProvider", dataProviderClass = DataProviders.class)
 	public void VerifyTotalInterestPayoutAmount(int amount){
 		try {
 			fixedDepositPage.enterAmount(amount);
@@ -51,8 +51,8 @@ public class FixedDepositPageTest extends TestBase{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Assert.assertEquals(fixedDepositPage.getTotalInterestPayout().substring(1), Double.toString(((amount*7.26)/100)));
-
+				
+		Assert.assertEquals(fixedDepositPage.getTotalInterestPayout(), Double.toString(((amount*Double.parseDouble(prop.getProperty("interest_percentage")))/100)));
 	}
 
 

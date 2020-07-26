@@ -22,7 +22,7 @@ public class BrowserSelection extends TestBase{
 			System.out.println("Unable to launch the browser=" + browsername);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Long.parseLong(prop.getProperty("page_load_timeout")), TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Long.parseLong(prop.getProperty("implicit_wait_timeout")), TimeUnit.SECONDS);
 		return driver;
 	}
 	
